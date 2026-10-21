@@ -1,0 +1,25 @@
+# Echoes of Time's keys: copy to build/keys.txt.
+# The game turns the Wii's buttons into the DS's (801078C0): A is A, B is B,
+# Z is Y, C is L, 1 is START, 2 is SELECT, the Nunchuk's stick (and the
+# Remote's cross) the cross; the pointer is the touch screen, under the mouse.
+# Keys by SDL's names; mouse buttons Mouse Left/Right/Middle.
+# Fixed: Esc (the pause box), F11 and Alt+Enter (fullscreen), F12 (GX trace).
+A     = Mouse Left, Return, J
+B     = Space, Mouse Right, K
+Up    = Up
+Down  = Down
+Left  = Left
+Right = Right
+Plus  = P
+Minus = M
+1     = Tab, 1
+2     = Backspace, 2
+Shake = Mouse Middle
+# the Nunchuk
+C     = E
+Z     = Q
+Stick Up    = W
+Stick Down  = S
+Stick Left  = A
+Stick Right = D
+Walk  = Left Shift

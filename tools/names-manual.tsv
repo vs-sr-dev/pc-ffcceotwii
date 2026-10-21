@@ -1,0 +1,18 @@
+addr	name	evidence
+801C22D4	WPADStartFastSimpleSync	first of five 4-byte WUD thunks after WPADInit and its li r3,1; blr (801C22CC), Crystal Bearers' order; b 801D0624 (WUDStartSyncSimple's place)
+801C22D8	WPADStopSimpleSync	b WUDStopSyncSimple (801D06C8, by signature); second thunk
+801C22DC	WPADSetSimpleSyncCallback	third thunk, b 801D047C; called by the HOME Menu with WPADStartFastSimpleSync and WPADStopSimpleSync
+801C22E0	WPADRegisterAllocator	b WUDRegisterAllocator (801D0120, by kin); fourth thunk; called by the game's input set-up (80173118) with two functions
+801C22E4	WPADGetStatus	b WUDGetStatus (801D038C, by kin); fifth thunk
+801C366C	WPADSetSamplingCallback	0x88 bytes, first after WPADProbe, as Crystal Bearers' (803D0AC0); tests WPADSetCallbackByKPAD's flag (8088DF18)
+801C36F4	WPADSetConnectCallback	0x88 bytes, second after WPADProbe, as Crystal Bearers' (803D0B50); called by the HOME Menu's initCallback and clearCallback
+801C7994	WPADSetCallbackByKPAD	stw r3 to 8088DF18, the flag WPADSetSamplingCallback and WPADSetConnectCallback test; called by the HOME Menu's initCallback and clearCallback
+80202878	read_kpad_acc	after calc_acc_vertical, before select_2obj_first, as Crystal Bearers' (0.81 alike); 0x458 bytes (theirs 0x460)
+8020418C	read_kpad_ext	after clamp_stick_cross, 0x7D0 bytes (Crystal Bearers' 0x8D0); picks clamp_stick_cross when KPADEnableStickCrossClamp's flag is set
+8020495C	KPADRead	li r6,0; li r7,0; b KPADiRead: as Crystal Bearers'; called once, by the game's input read (801731E0), 16 samples at strides of 0xB0
+80204968	KPADiRead	the target of KPADRead; 0x908 bytes (Crystal Bearers' 0x72C); calls WPADProbe
+80205270	KPADInit	li r3,0; li r4,0; b KPADInitEx; called by the game's input set-up (80173118)
+8020527C	KPADInitEx	the target of KPADInit (0.92 alike Crystal Bearers')
+802056CC	KPADiConnectCallback	0x164 bytes as Crystal Bearers'; calls the function KPADSetConnectCallback stores at +0x550 of the channel's state
+80205830	KPADSetConnectCallback	(chan, cb): stores cb at +0x550 of the channel's 0x5C0-byte state; called for channels 0-3 by the game's input set-up with 80173100
+802060F0	KPADEnableStickCrossClamp	stores 1 to 8088DFE0, the flag read_kpad_ext tests to clamp the stick to a cross (clamp_stick_cross) instead of a circle; called by the game's input set-up

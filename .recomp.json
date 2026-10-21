@@ -1,0 +1,11 @@
+{
+  "$schema": "https://recomp.fyi/schema/v1.json",
+  "game": "Final Fantasy Crystal Chronicles: Echoes of Time",
+  "system": "Wii",
+  "type": "recomp",
+  "toolchain": "wiikit",
+  "status": "in-progress",
+  "targets": [
+    "Windows"
+  ]
+}
