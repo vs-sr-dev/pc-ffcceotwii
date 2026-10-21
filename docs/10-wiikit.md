@@ -1,8 +1,8 @@
 # wiikit: what this port asks of it
 
 The port takes wiikit as a submodule at `wiikit/`, pinned first at
-ce8560e, the other ports' commit, then at this session's fix (checked on
-the nine other ports), then at the commit whose README names this port.
+ce8560e, the other ports' commit, then at baa481a, this session's fix (checked on
+the nine other ports), then at 241ab87, whose README names this port.
 
 The game boots, plays and reaches its menus on wiikit as it was. Its layer
 (`tools/eot.cpp`) asks only for what wiikit already offers:
